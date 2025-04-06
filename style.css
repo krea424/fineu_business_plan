@@ -150,32 +150,17 @@ footer {
 .content {
     flex: 1; /* Takes remaining space */
     padding: 30px 40px;
-    position: relative; /* Per posizionare il logo */
+    /* Rimozione del position: relative che era necessario per la filigrana */
 }
 
-.content::before {
-    content: "";
-    background-image: url("./logo_fineu.png");
-    background-repeat: no-repeat;
-    background-size: 150px auto;
-    background-position: center top;
-    opacity: 0.15; /* Opacità leggera per effetto filigrana */
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 150px; /* Altezza dell'area del logo */
-    z-index: 0; /* Sotto il contenuto */
-    pointer-events: none; /* Permette di cliccare attraverso */
-}
+/* Rimozione completa del blocco .content::before che creava la filigrana */
 
-/* Assicura che il contenuto sia sopra la filigrana */
+/* Assicura che il contenuto sia correttamente posizionato */
 section {
     margin-bottom: 40px;
     padding-top: 20px; /* Space for anchor links */
     border-bottom: 1px solid #eee; /* Separator between main sections */
-    position: relative;
-    z-index: 1;
+    /* Rimozione di position: relative e z-index che erano necessari per la filigrana */
 }
 
 section:last-child {
