@@ -13,7 +13,7 @@ body {
     display: block;
     width: 200px; /* Larghezza proporzionata */
     height: auto; /* Mantiene le proporzioni */
-    margin: 10px auto -30px; /* Margine negativo in basso per avvicinare al contenuto */
+    margin: 30px auto -30px; /* Margine negativo in basso per avvicinare al contenuto */
     background-color: transparent; /* Sfondo trasparente */
     position: relative; /* Per il posizionamento */
     z-index: 5; /* Assicura che sia sopra altri elementi */
@@ -433,7 +433,65 @@ td.negative {
     border-left: 3px solid #28a745; /* Green indicator for milestones */
 }
 
-/* PDF Export Button */
+/* Logo sopra il titolo della prima sezione */
+.section-logo {
+    display: block;
+    width: 120px;
+    height: auto;
+    margin: 0 0 20px 0;
+}
+
+/* Stile per l'header senza logo */
+header {
+    position: relative;
+    padding: 20px;
+    text-align: center;
+    background-image: url('./logo_fineu.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-blend-mode: lighten;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.header-content {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.header-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#export-pdf-button {
+    background-color: #1a5276;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#export-pdf-button:hover {
+    background-color: #154360;
+}
+
+/* Responsive per dispositivi mobili */
+@media screen and (max-width: 768px) {
+    .header-buttons {
+        position: static;
+        margin-top: 15px;
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
 #export-pdf-button {
     background-color: #f0ad4e; /* Accent Gold/Orange */
     color: #003366; /* Dark Blue text */
