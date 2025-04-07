@@ -8,15 +8,18 @@
 </head>
 <body>
     <header>
+        <img src="./logo_fineu.png" alt="FinEU Logo" class="header-logo">
         <h1>Distribuzione e Promozione Carta di Credito</h1>
         <h2>Piano Strategico e Business Plan per FinEu</h2>
         <p>Analisi e proposta strategica per la distribuzione di una carta di credito a saldo Mastercard Gold in collaborazione con un istituto bancario lituano</p>
-        <button id="export-pdf-button" onclick="window.print()">Esporta in PDF</button>
+        <div class="header-buttons">
+            <button id="export-pdf-button" onclick="window.print()">Esporta in PDF</button>
+            <button id="mobile-menu-toggle" class="mobile-only">☰ Menu</button>
+        </div>
     </header>
-    <img src="./logo_fineu.png" alt="FinEU Logo" class="document-logo">
     <div class="container">
-        <nav class="sidebar">
-            <h3>Indice</h3>  
+        <nav class="sidebar" id="sidebar-nav">
+            <h3>Indice</h3>   
             <ul>
                 <li><a href="#section1">1. Business Document</a>
                     <ul>
@@ -1644,6 +1647,34 @@
     <footer>
         <p>Report Confidenziale - FinEu S.r.l. - &copy; 2025</p>
     </footer>
-
+    <script>
+        const menuToggle = document.getElementById('mobile-menu-toggle');
+        const sidebar = document.getElementById('sidebar-nav');
+        
+        if (menuToggle && sidebar) {
+            menuToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('open');
+            });
+        }
+        
+        // Close menu when clicking on a link
+        const sidebarLinks = document.querySelectorAll('.sidebar a');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (sidebar.classList.contains('open')) {
+                    sidebar.classList.remove('open');
+                }
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!sidebar.contains(event.target) && 
+                !menuToggle.contains(event.target) && 
+                sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+            }
+        });
+    </script>
 </body>
 </html>
